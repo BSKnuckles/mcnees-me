@@ -12,7 +12,7 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main className='min-h-screen w-full flex flex-col justify-center prose px-8'>
+      <main className='min-h-screen w-full flex flex-col items-center justify-center mx-auto prose px-8'>
         <h1 className='text-white text-5xl mb-0'>Hi, I&apos;m Michael McNees 🕹</h1>
         <p className='text-gray-300'>
           I build web apps using awesome technologies like{' '}
@@ -33,7 +33,7 @@ export default function Home() {
           </a>
           . The site you&apos;re looking at now uses all three.
         </p>
-        <nav className='fixed top-0 right-8'>
+        <nav className='fixed top-0 right-0 left-0 flex justify-center'>
           <ul className='list-none flex gap-x-4 flex-wrap'>
             <li>
               <a
