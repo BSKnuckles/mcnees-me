@@ -35,7 +35,7 @@ export default function Home() {
           . The site you're looking at now uses all three.
         </p>
         <nav className='fixed top-0 right-8'>
-          <ul className='list-none flex space-x-4'>
+          <ul className='list-none flex gap-x-4 flex-wrap'>
             <li>
               <a
                 className='text-gray-300'
@@ -74,14 +74,10 @@ export default function Home() {
             </li>
           </ul>
         </nav>
-        <a
-          className='fixed bottom-4 right-4 text-red-700/60 text-[0.5rem]'
-          href='https://create.t3.gg/'
-          target='_blank'
-          referrerPolicy='no-referrer'>
-          Bleed Responsibly
-        </a>
       </main>
+      <footer className='fixed bottom-0 left-0 right-0 text-center text-gray-300/40 text-xs py-2'>
+        © 2023 Michael McNees
+      </footer>
     </>
   )
 }
