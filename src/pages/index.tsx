@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -14,7 +13,7 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <main className='min-h-screen w-full flex flex-col justify-center prose px-8'>
-        <h1 className='text-white text-5xl mb-0'>Hi, I'm Michael McNees 🕹</h1>
+        <h1 className='text-white text-5xl mb-0'>Hi, I&apos;m Michael McNees 🕹</h1>
         <p className='text-gray-300'>
           I build web apps using awesome technologies like{' '}
           <a className='text-sky-400' href='https://nextjs.org/' target='_blank' referrerPolicy='no-referrer'>
@@ -32,7 +31,7 @@ export default function Home() {
           <a className='text-sky-400' href='https://tailwindcss.com/' target='_blank' referrerPolicy='no-referrer'>
             Tailwind
           </a>
-          . The site you're looking at now uses all three.
+          . The site you&apos;re looking at now uses all three.
         </p>
         <nav className='fixed top-0 right-8'>
           <ul className='list-none flex gap-x-4 flex-wrap'>
