@@ -1,0 +1,12 @@
+---
+import NavBar from './NavBar.astro'
+import { HEADING, SUBHEADING } from '../config'
+---
+
+<header class='flex w-full flex-col lg:flex-row'>
+  <div class='flex-grow'>
+    <h1 class='text-3xl'>{HEADING}</h1>
+    <p>{SUBHEADING}</p>
+  </div>
+  <NavBar />
+</header>

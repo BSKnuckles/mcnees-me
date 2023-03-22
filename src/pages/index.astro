@@ -1,0 +1,49 @@
+---
+import BaseHead from '../components/BaseHead.astro'
+import NavBar from '../components/NavBar.astro'
+import Footer from '../components/Footer.astro'
+import Profile from '../images/profile.png'
+import { SITE_TITLE, SITE_DESCRIPTION, TOOLS } from '../config'
+import PostTile, { Post } from '../components/PostTile.astro'
+
+const posts: Post[] = (await Astro.glob('./blog/*.{md,mdx}')).sort(
+  (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+) as Post[]
+---
+
+<!DOCTYPE html>
+<html lang='en' class='bg-gray-800 text-gray-300 font-mono'>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class='m-0 p-16 pb-4 flex flex-col min-h-screen'>
+    <header class='flex'>
+      <div class='flex-grow flex space-x-16'>
+        <img src={Profile} class='w-80 h-auto object-cover shadow-lg' />
+        <div class='flex flex-col justify-between space-y-6'>
+          <h1 class='text-8xl'>Michael <span class='block'>McNees</span></h1>
+          <p class='text-gray-500'>Web Software Engineer</p>
+          <p>{SITE_DESCRIPTION}</p>
+        </div>
+      </div>
+      <NavBar />
+    </header>
+    <main class='my-16 flex-grow'>
+      <section id='tech' class='grid grid-cols-2 sm:grid-cols-4 gap-0.5 md:grid-cols-7 mb-16'>
+        {
+          TOOLS.map(tool => (
+            <div class='col-span-1 flex justify-center bg-gray-700 py-8 px-8' title={tool.name}>
+              <img class='max-h-12 invert opacity-70' src={tool.icon} alt={tool.name} />
+            </div>
+          ))
+        }
+      </section>
+      <section id='blog'>
+        <ul class='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full'>
+          {posts.map(post => <PostTile post={post} />)}
+        </ul>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

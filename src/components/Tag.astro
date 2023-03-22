@@ -1,0 +1,48 @@
+---
+import type { TAGS } from '../config'
+
+export interface Props {
+  tag: typeof TAGS[number]
+}
+
+const { tag } = Astro.props
+const name = tag.toLowerCase()
+---
+
+<a
+  href={`/blog/tag/${name.toLowerCase()}`}
+  class:list={[
+    'text-xs lowercase no-underline',
+    name === 'css'
+      ? 'text-orange-500'
+      : name === 'javascript'
+      ? 'text-sky-500'
+      : name === 'html'
+      ? 'text-rose-500'
+      : name === 'react'
+      ? 'text-green-500'
+			: name === 'typescript'
+      ? 'text-sky-500'
+			: name === 'tailwind'
+      ? 'text-teal-500'
+			: name === 'nextjs'
+      ? 'text-white'
+			: name === 'graphql'
+      ? 'text-pink-500'
+			: name === 'fullstack'
+      ? 'text-green-500'
+			: name === 'jamstack'
+      ? 'text-pink-500'
+			: name === 'frontend'
+      ? 'text-blue-500'
+			: name === 'backend'
+      ? 'text-orange-500'
+			: name === 'serverless'
+      ? 'text-yellow-500'
+			: name === 'database'
+      ? 'text-indigo-500'
+			: name === 'infrastructure'
+      ? 'text-fuchsia-500'
+      : 'text-gray-300'
+  ]}>{tag}</a
+>

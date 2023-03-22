@@ -1,0 +1,27 @@
+---
+import { TAGS } from '../../../config'
+import type { Post } from "../../../components/PostTile.astro";
+
+const { tag } = Astro.params;
+
+const posts: Post[] = (await Astro.glob('../../blog/*.{md,mdx}')).filter(post => post.frontmatter.tags?.includes(tag)).sort(
+  (a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf()
+) as Post[]
+
+export function getStaticPaths() {
+  return TAGS.map((tag) => ({
+		params: { tag },
+	}));
+}
+---
+
+<h1>{tag} Posts</h1>
+<ul>
+	{posts.map((post) => (
+		<li>
+			<a href={post.url}>{
+				post.frontmatter.title
+			}</a>
+		</li>
+	))}
+</ul>

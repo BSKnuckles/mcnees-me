@@ -1,0 +1,54 @@
+---
+import BaseHead from '../components/BaseHead.astro'
+import Footer from '../components/Footer.astro'
+import Header from '../components/Header.astro'
+import TagList from '../components/TagList.astro'
+
+export interface Props {
+  content: {
+    title: string
+    description: string
+    pubDate?: string
+    updatedDate?: string
+    heroImage?: string
+    tags?: string[]
+  }
+}
+
+const {
+  content: { title, description, pubDate, updatedDate, heroImage, tags }
+} = Astro.props
+---
+
+<html lang='en' class='bg-gray-800 text-gray-300 font-mono'>
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+
+  <body class='m-0 p-16 pb-4 flex flex-col min-h-screen'>
+    <Header />
+    <main>
+      <article class="prose xl:prose-2xl prose-p:text-gray-300 prose-headings:text-gray-200 prose-a:text-sky-500 prose-code:text-green-500 prose-strong:text-sky-200 prose-li:text-gray-300 mx-auto">
+        {heroImage && <img src={heroImage} alt={title} class='w-full h-auto object-contain mx-auto mb-24' />}
+        <header class='flex'>
+          <div class='flex flex-col-reverse flex-grow space-y-2'>
+            <h1>{title}</h1>
+            {pubDate && <time class='text-sm text-gray-300'>{pubDate}</time>}
+          </div>
+          {tags && <TagList tags={tags} />}
+        </header>
+        {
+          updatedDate && (
+            <div>
+              Last updated on <time>{updatedDate}</time>
+            </div>
+          )
+        }
+        <div class="">
+					<slot />
+				</div>
+      </article>
+    </main>
+    <Footer />
+  </body>
+</html>

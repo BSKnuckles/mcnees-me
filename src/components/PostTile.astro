@@ -1,0 +1,31 @@
+---
+import TagList from './TagList.astro'
+
+export type Post = {
+  frontmatter: {
+    title: string
+    pubDate: string
+    tags: string[]
+  }
+  url: string
+}
+export interface Props extends astroHTML.JSX.LiHTMLAttributes {
+  post: Post
+}
+
+const { post, ...props } = Astro.props
+---
+
+<li class='aspect-1 box-content border border-gray-500 -m-px p-4 relative' {...props}>
+	<TagList tags={post.frontmatter.tags} />
+	<time datetime={post.frontmatter.pubDate} class="text-sm text-gray-400">
+		{new Date(post.frontmatter.pubDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+	</time>
+	<a href={post.url}>
+	<div class='absolute inset-0 flex justify-center items-center p-4 text-center capitalize'>
+      <h3 class=''>
+        {post.frontmatter.title}
+      </h3>
+    </div>
+	</a>
+</li>
