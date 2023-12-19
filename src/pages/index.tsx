@@ -47,7 +47,7 @@ export default function Home() {
             <li>
               <a
                 className='text-gray-300'
-                href='https://www.dropbox.com/s/obn7wi4m37phdnl/MichaelMcNees_Resume_0323.pdf?dl=0'
+                href='https://www.dropbox.com/scl/fi/qr48k1yi30kgjv3qvdm8h/michael_mcnees_resume.pdf?rlkey=tsijjq2x9rxanxezucjber7xv&dl=0'
                 target='_blank'
                 referrerPolicy='no-referrer'>
                 Resume
@@ -65,7 +65,7 @@ export default function Home() {
             <li>
               <a
                 className='text-gray-300'
-                href='https://github.com/BSKnuckles'
+                href='https://github.com/michaelmcnees'
                 target='_blank'
                 referrerPolicy='no-referrer'>
                 GitHub
